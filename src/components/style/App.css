@@ -1,0 +1,8 @@
+.parking-list {
+    height: 97vh;
+    overflow: auto;
+}
+
+.left-column {
+    width: 20vw;
+}
