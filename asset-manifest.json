@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/parkings-recruitment-task/static/css/main.26949fb9.chunk.css",
+    "main.js": "/parkings-recruitment-task/static/js/main.03fe38b9.chunk.js",
+    "main.js.map": "/parkings-recruitment-task/static/js/main.03fe38b9.chunk.js.map",
+    "runtime-main.js": "/parkings-recruitment-task/static/js/runtime-main.5173f3c9.js",
+    "runtime-main.js.map": "/parkings-recruitment-task/static/js/runtime-main.5173f3c9.js.map",
+    "static/js/2.3ad5daf6.chunk.js": "/parkings-recruitment-task/static/js/2.3ad5daf6.chunk.js",
+    "static/js/2.3ad5daf6.chunk.js.map": "/parkings-recruitment-task/static/js/2.3ad5daf6.chunk.js.map",
+    "index.html": "/parkings-recruitment-task/index.html",
+    "precache-manifest.73b663dfba4cbdad5aeba0329cfe9ebe.js": "/parkings-recruitment-task/precache-manifest.73b663dfba4cbdad5aeba0329cfe9ebe.js",
+    "service-worker.js": "/parkings-recruitment-task/service-worker.js",
+    "static/css/main.26949fb9.chunk.css.map": "/parkings-recruitment-task/static/css/main.26949fb9.chunk.css.map",
+    "static/js/2.3ad5daf6.chunk.js.LICENSE": "/parkings-recruitment-task/static/js/2.3ad5daf6.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5173f3c9.js",
+    "static/js/2.3ad5daf6.chunk.js",
+    "static/css/main.26949fb9.chunk.css",
+    "static/js/main.03fe38b9.chunk.js"
+  ]
+}
