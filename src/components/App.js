@@ -25,7 +25,7 @@ export class App extends React.Component {
                     </div>
                     <div className="ten wide column">
                         <ParkingsFilterContainer />
-                        <ParkingsMap/>
+                        <ParkingsMap />
                     </div>
                 </div>
             </div>

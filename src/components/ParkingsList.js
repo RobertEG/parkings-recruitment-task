@@ -45,15 +45,15 @@ export class ParkingsList extends React.Component {
             editClicked: false,
             clickedParkingID: id
         });
-        const paidValue = (this.state.paidSelected === 'true' || this.state.paidSelected === true);
+        var paidValue = (this.state.paidSelected === 'true' || this.state.paidSelected === true);
         this.props.editParking(parking, this.refs.numParkings.value, this.refs.handicappedSpotsAmount.value, paidValue);
     }
 
     parkingToParkingItem = parking => {
-        const street = parking.properties.street;
-        const spots = parking.properties.spots;
-        const hSpots = parking.properties.handicappedSpots;
-        const paid = checkPaid(parking.properties.paid);
+        var street = parking.properties.street;
+        var spots = parking.properties.spots;
+        var hSpots = parking.properties.handicappedSpots;
+        var paid = checkPaid(parking.properties.paid);
 
         return (
             <div key={parking.geometry.coordinates} className="item" style={{maxWidth: "30vw"}}>
@@ -87,11 +87,16 @@ export class ParkingsList extends React.Component {
                             </div>
                         </div>
                         <div className="right floated content">
-                            <div className="ui tiny yellow button" onClick={() => this.handleClickSave(parking.geometry.coordinates, parking)}>Zapisz</div>
+                            <div 
+                                className="ui tiny yellow button" 
+                                onClick={() => this.handleClickSave(parking.geometry.coordinates, parking)}>
+                                Zapisz
+                            </div>
                             <div 
                                 className="ui tiny brown button"
-                                onClick={() => this.props.removeParking(parking)}
-                            >Usuń</div>
+                                onClick={() => this.props.removeParking(parking)}>
+                                Usuń
+                            </div>
                         </div>
                     </div>
                     ) : (

@@ -11,11 +11,12 @@ import Polygon from 'ol/geom/Polygon';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import { OSM } from 'ol/source';
+import {Stroke, Style} from 'ol/style';
 
 import { checkPaid } from './ParkingsList'
 import './style/ParkingsMap.css';
 
-const gdanskWebMercator = fromLonLat([18.608097630119324, 54.383750637998535]);
+const gdanskWebMercator = fromLonLat([18.608097630119324, 54.383950637998535]);
 
 class ParkingsMap extends React.Component {
   constructor() {
@@ -24,31 +25,80 @@ class ParkingsMap extends React.Component {
     this.state = {
       center: gdanskWebMercator,
       zoom: 16,
+      parking: []
     };
 
     this.checkObjectFromMap.bind(this);
     this.onClickNewLayer.bind(this);
     this.onMouseOverNewLayer.bind(this);
+    this.parkingsGeometryLayer.bind(this);
   }
 
-  checkObjectFromMap(polygon, object) {
+  checkObjectFromMap() {
     var map = this.map;
+    var parkings = this.props.parkings;
+    var polygon = new Polygon([]);
 
     map.on('pointermove', function(event) {
-      if(!polygon.intersectsCoordinate(event.coordinate)) {
-        map.getOverlayById(0).setPosition(undefined);
-      }
-      else {
+      var object = parkings.filter(parking => {
+        polygon = new Polygon([parking.geometry.coordinates["0"]]);
+        polygon.transform('EPSG:4326', 'EPSG:3857');
+        if(polygon.intersectsCoordinate(event.coordinate)) {
+          return parking;
+        }
+        else {
+          return false;
+        }
+      })
+      
+      if(object["0"] !== undefined) {
         var element = map.getOverlayById(0).getElement();
         element.style.display = "block";
 
         var content = document.getElementById('popup-content');
-        content.innerHTML = '<p>Ilość miejsc parkingowych: ' + object.properties.spots + '</p>' +
-                            '<p>Ilość miejsc parkingowych dla niepełnosprawnych: ' + object.properties.handicappedSpots + '</p>' +
-                            '<p>' + checkPaid(object.properties.paid) + '</p>';
+        content.innerHTML = '<p>Ilość miejsc parkingowych: ' + object["0"].properties.spots + '</p>' +
+                            '<p>Ilość miejsc parkingowych dla niepełnosprawnych: ' + object["0"].properties.handicappedSpots + '</p>' +
+                            '<p>' + checkPaid(object["0"].properties.paid) + '</p>';
         map.getOverlayById(0).setPosition(event.coordinate);
       }
+      else {
+        map.getOverlayById(0).setPosition(undefined);
+      }
     });
+  }
+
+  parkingsGeometryLayer(parkings) {
+    this.map.removeLayer(this.parkingsGeometryVectorLayer);
+    
+    var vectorSource = new VectorSource();
+    var feature = new Feature();
+    var stroke = new Stroke({
+      color: '#990000',
+      width: 1.25
+    });
+    var styles = [
+      new Style({
+        stroke: stroke
+      })
+    ];
+
+    parkings.map((parking) => {
+      var coord = parking.geometry.coordinates["0"];
+
+      var polygon = new Polygon([coord]);
+      polygon.transform('EPSG:4326', 'EPSG:3857');
+
+      feature = new Feature(polygon);
+      feature.setStyle(styles);
+
+      return vectorSource.addFeature(feature);
+    })
+
+    this.parkingsGeometryVectorLayer = new VectorLayer({
+      source: vectorSource
+    });
+
+    return this.map.addLayer(this.parkingsGeometryVectorLayer);
   }
 
   onClickNewLayer(onClickItem) {
@@ -127,11 +177,15 @@ class ParkingsMap extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.fetchSelected !== this.props.fetchSelected) {
       this.onClickNewLayer(this.props.fetchSelected);
-      this.checkObjectFromMap(this.polygon, this.props.fetchSelected);
     }
 
     if (prevProps.fetchOnMouseOver !== this.props.fetchOnMouseOver) {
       this.onMouseOverNewLayer(this.props.fetchOnMouseOver);
+    }
+
+    if (prevProps.parkings !== this.props.parkings) {
+      this.parkingsGeometryLayer(this.props.parkings);
+      this.checkObjectFromMap();
     }
   }
 
@@ -147,8 +201,9 @@ class ParkingsMap extends React.Component {
   }
 
   const mapStateToProps = state => {
-  return { fetchSelected: state.fetchSelected,
-          fetchOnMouseOver: state.fetchOnMouseOver 
+    return { fetchSelected: state.fetchSelected,
+            fetchOnMouseOver: state.fetchOnMouseOver,
+            parkings: state.parkings
   };
 }
 
