@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/parkings-recruitment-task/static/css/main.26949fb9.chunk.css",
-    "main.js": "/parkings-recruitment-task/static/js/main.ec10e8b5.chunk.js",
-    "main.js.map": "/parkings-recruitment-task/static/js/main.ec10e8b5.chunk.js.map",
+    "main.css": "/parkings-recruitment-task/static/css/main.7a9472bb.chunk.css",
+    "main.js": "/parkings-recruitment-task/static/js/main.af045267.chunk.js",
+    "main.js.map": "/parkings-recruitment-task/static/js/main.af045267.chunk.js.map",
     "runtime-main.js": "/parkings-recruitment-task/static/js/runtime-main.a27d9bbe.js",
     "runtime-main.js.map": "/parkings-recruitment-task/static/js/runtime-main.a27d9bbe.js.map",
     "static/js/2.02280764.chunk.js": "/parkings-recruitment-task/static/js/2.02280764.chunk.js",
     "static/js/2.02280764.chunk.js.map": "/parkings-recruitment-task/static/js/2.02280764.chunk.js.map",
     "index.html": "/parkings-recruitment-task/index.html",
-    "precache-manifest.83ef3928039f29c5002a9cd32fde0437.js": "/parkings-recruitment-task/precache-manifest.83ef3928039f29c5002a9cd32fde0437.js",
+    "precache-manifest.ec546be530eaf056aba7697cb409a566.js": "/parkings-recruitment-task/precache-manifest.ec546be530eaf056aba7697cb409a566.js",
     "service-worker.js": "/parkings-recruitment-task/service-worker.js",
-    "static/css/main.26949fb9.chunk.css.map": "/parkings-recruitment-task/static/css/main.26949fb9.chunk.css.map",
+    "static/css/main.7a9472bb.chunk.css.map": "/parkings-recruitment-task/static/css/main.7a9472bb.chunk.css.map",
     "static/js/2.02280764.chunk.js.LICENSE": "/parkings-recruitment-task/static/js/2.02280764.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.a27d9bbe.js",
     "static/js/2.02280764.chunk.js",
-    "static/css/main.26949fb9.chunk.css",
-    "static/js/main.ec10e8b5.chunk.js"
+    "static/css/main.7a9472bb.chunk.css",
+    "static/js/main.af045267.chunk.js"
   ]
 }
