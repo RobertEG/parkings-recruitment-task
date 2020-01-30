@@ -16,7 +16,7 @@ import {Stroke, Style} from 'ol/style';
 import { checkPaid } from './ParkingsList'
 import './style/ParkingsMap.css';
 
-const gdanskWebMercator = fromLonLat([18.608097630119324, 54.383950637998535]);
+const gdanskWebMercator = fromLonLat([18.608097630119324, 54.384200637998535]);
 
 class ParkingsMap extends React.Component {
   constructor() {
