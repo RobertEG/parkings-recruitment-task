@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "852b85f20097454331a3d64d5dab237a",
+    "revision": "4c6438155b9fad0d537f26d7851e3e86",
     "url": "/parkings-recruitment-task/index.html"
   },
   {
-    "revision": "2965c88f9bccd38f7925",
+    "revision": "a0724a9c1cc134cb3c8a",
     "url": "/parkings-recruitment-task/static/css/main.26949fb9.chunk.css"
   },
   {
-    "revision": "6eefee9c759d3054b67d",
-    "url": "/parkings-recruitment-task/static/js/2.9955b840.chunk.js"
+    "revision": "de6940783ad2201057a7",
+    "url": "/parkings-recruitment-task/static/js/2.02280764.chunk.js"
   },
   {
     "revision": "4302cec8d33c1a3a4473a3db31f00eca",
-    "url": "/parkings-recruitment-task/static/js/2.9955b840.chunk.js.LICENSE"
+    "url": "/parkings-recruitment-task/static/js/2.02280764.chunk.js.LICENSE"
   },
   {
-    "revision": "2965c88f9bccd38f7925",
-    "url": "/parkings-recruitment-task/static/js/main.37d5725e.chunk.js"
+    "revision": "a0724a9c1cc134cb3c8a",
+    "url": "/parkings-recruitment-task/static/js/main.ec10e8b5.chunk.js"
   },
   {
     "revision": "f0f9202e2f591a42bb1b",
